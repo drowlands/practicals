@@ -9,8 +9,8 @@ def main():
 
     index = 1
     for guitar in guitars:
-        print("Guitar {i}: {guitar.name} ({guitar.year}), worth $ {guitar.cost} {vintage_status}".format(i=index, guitar=guitars[guitar], vintage_status="(vintage)" if guitar.is_vintage() else ""))
-        # index += 1
+        print("Guitar {i}: {guitar.name} ({guitar.year}), worth $ {guitar.cost} {vintage_status}".format(i=index, guitar=guitar, vintage_status="(vintage)" if guitar.is_vintage() else ""))
+        index += 1
 
 
 def prompt(guitars):
