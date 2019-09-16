@@ -5,22 +5,28 @@ def main():
     # new_name = input("Enter your car name: ")
     # new_car = Car(new_name, 100)
 
-    new_car = Car(new_name, 100)
+    new_car = Car("The Bomb", 100)
 
-    print(new_car)
-
+    # print(new_car)
+    menu(new_car)
 
 def menu(car):
-    new_input = input("Enter your choice: ")
+    # new_input = input("Enter your choice: ")
     drive(car)
+
 def drive(car):
     while True:
         distance = int(input("How many km do you wish to drive? "))
         if distance < 0:
             print("Distance must be >= 0")
         else:
+            odometer_before = car.odometer
             car.drive(distance)
-
-
+            odometer_after = car.odometer
+            if car.fuel > 0:
+                print("The car drove {}km.".format(distance))
+            else:
+                print("The car drove {}km and ran out of fuel.".format(odometer_after - odometer_before))
+        return
 
 main()
