@@ -13,6 +13,8 @@ def main():
 def menu(car):
     # new_input = input("Enter your choice: ")
     drive(car)
+    refuel(car)
+
 
 def drive(car):
     while True:
@@ -27,6 +29,18 @@ def drive(car):
                 print("The car drove {}km.".format(distance))
             else:
                 print("The car drove {}km and ran out of fuel.".format(odometer_after - odometer_before))
-        return
+            return
+
+
+def refuel(car):
+    while True:
+        new_fuel = int(input("How many units of fuel do you want to add to the car? "))
+        if new_fuel < 0:
+            print("Fuel amount must be >= 0")
+        else:
+            car.add_fuel(new_fuel)
+            print("Added {} units of fuel.".format(new_fuel))
+            return
+
 
 main()
