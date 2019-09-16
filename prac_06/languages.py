@@ -18,6 +18,9 @@ new_list.append(visual_basic)
 # new_list.append(str(python))
 # new_list.append(str(visual_basic))
 
-
+print("The dynamically typed languages are:")
+for language in new_list:
+    if language.is_dynamic():
+        print(language.name)
 
 print(new_list)
