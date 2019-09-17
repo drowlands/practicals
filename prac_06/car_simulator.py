@@ -11,13 +11,14 @@ def main():
     menu(new_car)
 
 def menu(car):
-    print("Menu:\nd) drive\nr) refuel\nq) quit")
-    new_input = input("Enter your choice: ")
+
+    # new_input = input("Enter your choice: ")
     check = True
     while check:
+        print("Menu:\nd) drive\nr) refuel\nq) quit")
+        new_input = input("Enter your choice: ")
         if new_input.lower() == "d":
             drive(car)
-            return
         elif new_input.lower() == "r":
             refuel(car)
         elif new_input.lower() == "q":
