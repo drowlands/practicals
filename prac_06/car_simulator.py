@@ -13,34 +13,35 @@ def main():
 def menu(car):
     print("Menu:\nd) drive\nr) refuel\nq) quit")
     new_input = input("Enter your choice: ")
-    while True:
+    check = True
+    while check:
         if new_input.lower() == "d":
             drive(car)
+            return
         elif new_input.lower() == "r":
             refuel(car)
         elif new_input.lower() == "q":
             print("Good bye {}'s driver.".format(car.name))
-            return
+            check = False
         else:
             print("Invalid choice")
 
 
 def drive(car):
     check = True
+    distance = int(input("How many km do you wish to drive? "))
     while check:
-        distance = int(input("How many km do you wish to drive? "))
         if distance < 0:
             print("Distance must be >= 0")
         else:
+            check = False
             odometer_before = car.odometer
             car.drive(distance)
             odometer_after = car.odometer
             if car.fuel > 0:
                 print("The car drove {}km.".format(distance))
-                check = False
             else:
                 print("The car drove {}km and ran out of fuel.".format(odometer_after - odometer_before))
-                check = False
 
 
 def refuel(car):
